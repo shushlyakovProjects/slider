@@ -1,0 +1,216 @@
+*{
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+*,*:before,*::after{
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: :border-box;
+}
+:focus,:active{outline: none;}
+a:focus,a:active{outline: none;}
+
+nav,footer,header,aside{display: block;}
+
+html,body{
+  height: 100%;
+  width: 100%;
+  font-size: 100%;
+  line-height: 1;
+  font-size: 14px;
+  -ms-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+input,button,textarea{font-family: inherit;}
+input::-ms-clear{display: none;}
+button{cursor: pointer;}
+button::-moz-focus-inner{padding: 0; border: 0;}
+a, a:visited{text-decoration: none;}
+a:hover{text-decoration: none;}
+ul li {list-style: none;}
+img{vertical-align: top;}
+h1,h2,h3,h4,h5,h6{font-size: inherit; font-weight: 400;}
+
+body{
+  padding: 30px;
+  background: url(../img/phon.jpg)no-repeat;
+  background-size: cover;
+}
+.wrapper{
+  height: 400px;
+  width: 100%;
+  display: flex;
+  position: relative;
+}
+.window{
+  width: 650px;
+  height: 400px;
+  outline: 2px solid rgba(38, 77, 82, 0.6);
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  overflow: hidden;
+  border-radius: 6px;
+  user-select: none;
+  box-shadow: 0px 0px 0px rgba(148, 81, 19, 0.25);
+}
+.photos{
+  border-radius: 6px;
+  height: 100%;
+  min-width: 650px;
+  float: left;
+  position: relative;
+}
+.photos img{
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+}
+.first_photo{
+  margin-left: 0%;
+  transition-duration: 1s;
+}
+
+.window:hover{
+  box-shadow: 0px 0px 15px rgba(38, 77, 82, 0.5);
+}
+.window:hover .window_back{
+  background-color: rgba(38, 77, 82, 0.5);
+}
+.window:hover .window_forward{
+  background-color: rgba(38, 77, 82, 0.5);
+}
+
+.window_back{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 8%;
+  height: 100%;
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: w-resize;
+  transition-duration: 1s;
+}
+.window_back img{
+  width: 25px;
+  transform: rotate(180deg);
+  opacity: 0.3;
+  transition-duration: 0.5s;
+  border-radius: 50%;
+}
+.window_back:hover img{
+  opacity: 0.8;
+  background-color: white;
+  box-shadow: 0px 0px 5px white;
+}
+.window_back:active img{
+  transition-duration: 0s;
+  opacity: 1;
+  background-color: white;
+  box-shadow: 0px 0px 8px white;
+}
+
+.window_forward{
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 8%;
+  height: 100%;
+  z-index: 2;
+  transition-duration: 1s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: e-resize;
+}
+.window_forward img{
+  width: 25px;
+  transform: rotate(180deg);
+  opacity: 0.3;
+  transition-duration: 0.5s;
+  border-radius: 50%;
+}
+.window_forward:hover img{
+  opacity: 0.8;
+  background-color: white;
+  box-shadow: 0px 0px 5px white;
+}
+.window_forward:active img{
+  transition-duration: 0s;
+  opacity: 1;
+  background-color: white;
+  box-shadow: 0px 0px 8px white;
+}
+
+.stop img{
+  background-color: red;
+  box-shadow: 0px 0px 8px red;
+  user-select: none;
+}
+.stop:hover img{
+  background-color: red;
+  box-shadow: 0px 0px 8px red;
+  opacity: 0.5;
+  animation-name: forstop;
+  animation-duration: 0.5s;
+  animation-iteration-count: 3;
+}
+@keyframes forstop {
+  0%{transform: translateX(0px);}
+  50%{transform: translateX(10px);}
+  100%{transform: translateX(0px);}
+}
+
+.counter{
+  position: absolute;
+  width: 100px;
+  height: 20px;
+  z-index: 2;
+  bottom: 0px;
+  right: 0px;
+  color: rgba(38, 77, 82, 1);
+  font-size: 14px;
+  font-family: Arial;
+  text-align: right;
+  margin: 0 10px 5px 0;
+}
+
+.autoEnd{
+  position: absolute;
+  width: 100px;
+  height: 20px;
+  z-index: 2;
+  bottom: 0px;
+  right: 0px;
+  color: rgba(38, 77, 82, 1);
+  font-size: 14px;
+  font-family: Arial;
+  text-align: right;
+  margin: 0 7% 5px 0;
+  transition-duration: 1s;
+  cursor: pointer;
+}
+.autoStart{
+  position: absolute;
+  width: 100px;
+  height: 20px;
+  z-index: 2;
+  bottom: 0px;
+  right: 0px;
+  color: rgba(38, 77, 82, 1);
+  font-size: 14px;
+  font-family: Arial;
+  text-align: right;
+  margin: 0 20% 5px 0;
+  transition-duration: 1s;
+  cursor: pointer;
+}
+.auto:hover{
+  color: rgba(16, 195, 235, 1);
+}
